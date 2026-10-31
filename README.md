@@ -79,7 +79,7 @@ Copy the required accordion transition rules into your global CSS file. This han
   transition: opacity 0.4s ease, transform 0.8s ease;
 }
 
-/* Mobile Viewport */
+/* Mobile */
 @media (max-width: 767.98px) {
   .accordion-card.mobile-active {
     border-color: rgba(255, 255, 255, 0.22) !important;
@@ -94,9 +94,19 @@ Copy the required accordion transition rules into your global CSS file. This han
     transform: translateY(0) !important;
     pointer-events: auto !important;
   }
+  .accordion-card:not(.mobile-active) .shrunk-content {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+  .accordion-card:not(.mobile-active) .expanded-content {
+    opacity: 0 !important;
+    transform: translateY(15px) !important;
+    pointer-events: none !important;
+  }
 }
 
-/* Tablet Viewport */
+/* Tablet */
 @media (min-width: 768px) {
   .accordion-card.active {
     border-color: rgba(255, 255, 255, 0.22) !important;
@@ -113,7 +123,7 @@ Copy the required accordion transition rules into your global CSS file. This han
   }
 }
 
-/* Desktop Hover Viewport */
+/* Desktop */
 @media (min-width: 768px) and (hover: hover) {
   .accordion-card:hover {
     border-color: rgba(255, 255, 255, 0.22) !important;
@@ -129,6 +139,7 @@ Copy the required accordion transition rules into your global CSS file. This han
     pointer-events: auto !important;
   }
 }
+
 ```
 
 ### 2. Data Definition (`data/galleryData.ts`)
